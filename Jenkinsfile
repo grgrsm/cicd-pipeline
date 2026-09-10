@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'Node 7.8.0'
-    }
-
     environment {
         CURRENT_BRANCH = "${ENV_BRANCH ? ENV_BRANCH : (BRANCH_NAME ? BRANCH_NAME : 'main')}"
         PORT = "${CURRENT_BRANCH == 'main' ? '3000' : '3001'}"
